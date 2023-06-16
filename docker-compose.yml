@@ -20,13 +20,14 @@ services:
       - 8000:8080
 
   mariadb-backup:
-    build: ./mariadb-backup
+    build: ./cron-mariadb-backup
     command: crond -f -l 8
     environment:
       MARIADB_HOST : db
       MARIADB_DATABASE : mariadb
-      MARIADB_USER : mariadb
-      MARIADB_PASSWORD: secure-password
+# Root en attendant de solutionner les privileges de connections à la base (%localhost)
+      MARIADB_USER : root
+      MARIADB_PASSWORD: mariadb
     volumes:
       - ./etc/periodic:/etc/periodic:ro
-      - ./dump:/mnt/dump
+      - ./backups:/backups
