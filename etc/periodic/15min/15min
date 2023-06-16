@@ -1,0 +1,4 @@
+#!/bin/sh
+
+current_time=$(date +"%H:%M:%S")
+echo "Après 15 min : L'heure est : $current_time"
