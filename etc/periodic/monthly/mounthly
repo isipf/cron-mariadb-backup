@@ -1,4 +1,5 @@
 #!/bin/sh
 
 current_date=$(date +"%Y%m")
+echo "Dump de la base de donnée ${MARIADB_DATABASE} dans le fichier ${current_date}-${MARIADB_DATABASE}.sql"
 mariadb-dump --host=${MARIADB_HOST} --user=${MARIADB_USER} --password=${MARIADB_PASSWORD} ${MARIADB_DATABASE} > /mnt/dump/${current_date}-${MARIADB_DATABASE}.sql
