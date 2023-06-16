@@ -1,4 +1,4 @@
 #!/bin/sh
 
-current_time=$(date +"%H:%M:%S")
-echo "Après 1 mois, L'heure actuelle est : $current_time"
+current_date=$(date +"%Y%m")
+mariadb-dump --host=${MARIADB_HOST} --user=${MARIADB_USER} --password=${MARIADB_PASSWORD} ${MARIADB_DATABASE} > /mnt/dump/${current_date}-${MARIADB_DATABASE}.sql

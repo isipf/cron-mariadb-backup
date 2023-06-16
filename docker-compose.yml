@@ -1,19 +1,32 @@
 
 services:
-    mariadb:
-      image: mariadb
-      restart: always
-      environment:
-        MARIADB_ROOT_PASSWORD: mariadb
-        MARIADB_DATABASE: mariadb
-        MARIADB_USER: mariadb
-      volumes:
-        - ./data:/var/lib/mysql
-      ports:
-        - 3306:3306
+  db:
+    image: mariadb
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: mariadb
+      MARIADB_DATABASE: mariadb
+      MARIADB_USER: mariadb
+      MARIADB_PASSWORD: secure-password
+    volumes:
+      - ./data:/var/lib/mysql
+    ports:
+      - 3306:3306
 
-    mariadb-backup:
-      build: ./mariadb-backup
-      command: crond -f -l 8
-      volumes:
-        - ./etc/periodic:/etc/periodic:ro
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8000:8080
+
+  mariadb-backup:
+    build: ./mariadb-backup
+    command: crond -f -l 8
+    environment:
+      MARIADB_HOST : db
+      MARIADB_DATABASE : mariadb
+      MARIADB_USER : mariadb
+      MARIADB_PASSWORD: secure-password
+    volumes:
+      - ./etc/periodic:/etc/periodic:ro
+      - ./dump:/mnt/dump
