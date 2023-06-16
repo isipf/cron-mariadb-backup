@@ -1,0 +1,4 @@
+#!/bin/sh
+
+current_time=$(date +"%H:%M:%S")
+echo "Après 1 semaine, L'heure actuelle est : $current_time"
