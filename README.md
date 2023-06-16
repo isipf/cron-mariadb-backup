@@ -1,14 +1,23 @@
-# Mariadb cron backup
+# Mariadb Cron Backup
 
 ## Description
 Projet de containeur docker avec un client mariadb pouvant acceuillir des script dans les dossiers cron prédéfini pour faire un dump de la base de donnée
 
 
 ## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+1. Télécharger le projet
+```
+cd existing_repo
+git remote add origin https://gitlab.com/stegens-labs/docker/mariadb-cron-backup.git
+git branch -M main
+git push -uf origin main
+```
 
 ## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+1. Ouvrir le terminal à la racine du projet
+2. Executer `docker-compose up`
+
+Il est possible d'ajouter des jobs via les dossiers dans les répetoires etc/periodic
 
 ## Contributing
 State if you are open to contributions and what your requirements are for accepting them.
@@ -20,4 +29,5 @@ You can also document commands to lint the code or run tests. These steps help t
 ## Authors and acknowledgment
 David Chungue et Thomas Stegen
 
+https://mariadb.com/kb/en/mariadb-dump/
 https://devopscell.com/cron/docker/alpine/linux/2017/10/30/run-cron-docker-alpine.html
