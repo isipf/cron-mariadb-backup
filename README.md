@@ -5,7 +5,6 @@ Projet de containeur docker avec un client mariadb pouvant acceuillir des script
 
 
 ## Installation
-1. Télécharger le projet
 ```
 cd existing_repo
 git remote add origin https://gitlab.com/stegens-labs/docker/mariadb-cron-backup.git
