@@ -20,6 +20,7 @@ services:
       - 8000:8080
 
   mariadb-backup:
+    image: isipf/mariadb-client
     build: ./cron-mariadb-backup
     command: crond -f -l 8
     environment:
